@@ -1,6 +1,6 @@
-<% if window.logged_in: %>
-  <h1>Hey <%= window.current_user.name %>,</h1>
-  <p>You can meet people or update your profile.</p>
+<% if @logged_in: %>
+  <h1>Hey <%= @current_user.name %>,</h1>
+  <p>You can <%- @link 'meet people', '/meet' %> or <%- @link 'update your profile', '/profile' %>.</p>
 <% else: %>
   <h1>Yo</h1>
   <p>Sign in with <a href="/authorizations/github">github</a>.</p>
