@@ -5,4 +5,4 @@ class AppRouter extends Backbone.Router
   home: ->
     console.log "home"
 
-appRouter = new AppRouter
+@appRouter = new AppRouter
