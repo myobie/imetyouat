@@ -15,3 +15,11 @@ class @BaseView extends Backbone.View
 
   logged_in: window.logged_in
   current_user: window.current_user
+
+  @currentContentView: null
+  @setContentView: (view) ->
+    if @currentContentView
+      @currentContentView.remove()
+    @currentContentView = view
+    view.setElement document.getElementById "content"
+    view.render()
