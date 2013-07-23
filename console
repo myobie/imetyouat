@@ -1,0 +1,2 @@
+source .powenv
+bin/rails c

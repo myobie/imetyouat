@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: rails-app_development
+  database: imetyouat_development
   pool: 5
-  username: rails-app
+  username: imetyouat
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,15 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: rails-app_test
+  database: imetyouat_test
   pool: 5
-  username: rails-app
+  username: imetyouat
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: rails-app_production
+  database: imetyouat_production
   pool: 5
-  username: rails-app
+  username: imetyouat
   password:

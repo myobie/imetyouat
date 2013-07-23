@@ -1,0 +1,8 @@
+<h1>Hello</h1>
+
+<% if logged_in? %>
+  <p>Hey <%= current_user.name %></p>
+  <pre><%= current_user.inspect %></pre>
+<% else %>
+  <p>Sign in with <%= link_to 'GitHub', authorize_github_path %>.</p>
+<% end %>
