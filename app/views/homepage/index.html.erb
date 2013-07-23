@@ -1,8 +1,13 @@
-<h1>Hello</h1>
-
+<script>
 <% if logged_in? %>
-  <p>Hey <%= current_user.name %></p>
-  <pre><%= current_user.inspect %></pre>
+  window.logged_in = true;
+  window.current_user = {
+    name: "<%= current_user.name %>",
+    email: "<%= current_user.email %>",
+    github_id: "<%= current_user.github_id %>",
+    twitter_id: "<%= current_user.twitter_id %>"
+  };
 <% else %>
-  <p>Sign in with <%= link_to 'GitHub', authorize_github_path %>.</p>
+  window.logged_in = false;
 <% end %>
+</script>
