@@ -36,6 +36,11 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     diff-lcs (1.2.4)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -116,6 +121,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  eco
   pg
   rails (= 4.0.0)
   rest-client

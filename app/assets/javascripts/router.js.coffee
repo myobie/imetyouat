@@ -1,8 +1,8 @@
-class AppRouter extends Backbone.Router
+class AppRouter extends BaseRouter
   routes:
     "": "home"
 
   home: ->
-    console.log "home"
+    @render template: "home"
 
 @appRouter = new AppRouter
