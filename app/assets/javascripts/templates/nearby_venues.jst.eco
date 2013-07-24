@@ -1,0 +1,8 @@
+<h2>Nearby places</h2>
+<ul>
+  <% for venue in @collection.models: %>
+    <li>
+      <%= venue.get 'name' %>
+    </li>
+  <% end %>
+</ul>
