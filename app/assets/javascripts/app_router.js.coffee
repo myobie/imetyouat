@@ -8,14 +8,14 @@ class AppRouter extends BaseRouter
   home: ->
     @render template: "home"
 
-  notFound: ->
+  notFound: (glob) ->
     @render template: "404"
 
   meet: ->
     @render html: "I guess it works"
 
   profile: ->
-    @render json: current_user
+    @render json: currentUser
 
 @appRouter = new AppRouter
 

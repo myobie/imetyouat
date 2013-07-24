@@ -16,8 +16,8 @@ class @BaseView extends Backbone.View
     s.className += " link"
     s.outerHTML
 
-  logged_in: window.logged_in
-  current_user: window.current_user
+  loggedIn: window.loggedIn
+  currentUser: window.currentUser
 
   @currentContentView: null
   @contentDiv: document.getElementById "content"

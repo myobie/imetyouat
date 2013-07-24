@@ -1,18 +1,16 @@
 <script>
 <% if logged_in? %>
-  window.logged_in = true;
-  window.current_user = {
+  window.loggedIn = true;
+  window.currentUser = {
     name: "<%= current_user.name %>",
     email: "<%= current_user.email %>",
     github_id: "<%= current_user.github_id %>",
     twitter_id: "<%= current_user.twitter_id %>"
   };
 <% else %>
-  window.logged_in = false;
-  window.current_user = null;
+  window.loggedIn = false;
+  window.currentUser = null;
 <% end %>
 </script>
 
-<div id="content">
-
-</div>
+<div id="content"></div>

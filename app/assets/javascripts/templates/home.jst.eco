@@ -1,5 +1,5 @@
-<% if @logged_in: %>
-  <h1>Hey <%= @current_user.name %>,</h1>
+<% if @loggedIn: %>
+  <h1>Hey <%= @currentUser.name %>,</h1>
   <p>You can <%- @link 'meet people', '/meet' %> or <%- @link 'update your profile', '/profile' %>.</p>
 <% else: %>
   <h1>Yo</h1>
