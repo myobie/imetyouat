@@ -11,6 +11,11 @@ class @BaseView extends Backbone.View
     @afterRender?()
     @
 
+  remove: ->
+    for selector, child in @children
+      child.remove()
+    super
+
   children: {}
 
   renderSubViews: ->
