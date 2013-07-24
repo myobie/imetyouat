@@ -1,6 +1,10 @@
 class @BaseView extends Backbone.View
+  @jst: (name) -> JST["templates/#{name}"]
+
   render: ->
+    @beforeRender?()
     @$el.html @template @
+    @afterRender?()
     @
 
   appendTo: (element) ->

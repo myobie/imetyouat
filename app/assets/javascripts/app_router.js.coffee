@@ -12,7 +12,7 @@ class AppRouter extends BaseRouter
     @render template: "404"
 
   meet: ->
-    @render html: "I guess it works"
+    @render view: "MeetView"
 
   profile: ->
     @render json: currentUser

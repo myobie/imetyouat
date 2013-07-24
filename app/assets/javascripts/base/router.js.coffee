@@ -1,14 +1,20 @@
 class @BaseRouter extends Backbone.Router
   render: (opts = {}) ->
     if opts.template
-      template = JST["templates/#{opts.template}"]
+      template = BaseView.jst opts.template
       view = new BaseView
       view.template = template
       BaseView.setContentView view
       return @
 
     if opts.view
-      BaseView.setContentView opts.view
+      view = if _.isString opts.view
+        klass = window[opts.view]
+        new klass opts.viewOpts
+      else
+        opts.view
+
+      BaseView.setContentView view
       return @
 
     if opts.html

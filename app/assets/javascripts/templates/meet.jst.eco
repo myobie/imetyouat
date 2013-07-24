@@ -1,0 +1,8 @@
+<h1>Meet some people.</h1>
+
+<form>
+  <p><label>Where are you? <input type="search" placeholder="Search"></label></p>
+</form>
+
+<h2>Nearby places</h2>
+<ul></ul>
