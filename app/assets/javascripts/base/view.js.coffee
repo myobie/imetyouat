@@ -3,6 +3,9 @@ class @BaseView extends Backbone.View
     @$el.html @template @
     @
 
+  appendTo: (element) ->
+    element.appendChild @el
+
   link: (name, path, opts = {}) ->
     s = document.createElement 'span'
     s.innerText = name
@@ -17,9 +20,8 @@ class @BaseView extends Backbone.View
   current_user: window.current_user
 
   @currentContentView: null
+  @contentDiv: document.getElementById "content"
   @setContentView: (view) ->
-    if @currentContentView
-      @currentContentView.remove()
+    @currentContentView.remove() if @currentContentView
     @currentContentView = view
-    view.setElement document.getElementById "content"
-    view.render()
+    view.render().appendTo @contentDiv

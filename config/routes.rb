@@ -4,4 +4,6 @@ RailsApp::Application.routes.draw do
   get '/github_callback' => 'authorizations#github_callback'
 
   root to: 'homepage#index'
+
+  get '*glob' => 'homepage#index'
 end
