@@ -31,11 +31,16 @@ class @BaseView extends Backbone.View
       @children[selector] = child
       child
 
+  constructor: (opts) ->
+    @parent = opts?.parent
+    super
+
   prepareSubView: (selector, view) ->
     element = @$(selector).get(0)
     view = window[view] if _.isString view
-    instance = new view @subViewOpts
-    instance.parent = @
+    opts = parent: @
+    _.extend opts, @subViewOpts
+    instance = new view opts
     instance.setElement element
     instance
 
