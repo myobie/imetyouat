@@ -1,1 +1,3 @@
-<li><%- @link "Just use \"#{@escape @lastQuery}\"", "/venues/new", query: @lastQuery %></li>
+<% unless !@lastQuery or @lastQuery is '': %>
+  <li><%- @link "Just use \"#{@escape @lastQuery}\"", "/venues/new", params: { query: @lastQuery } %></li>
+<% end %>
