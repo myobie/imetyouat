@@ -1,5 +1,6 @@
 class VenuesRouter extends BaseRouter
   routes:
+    "venues": "index"
     "venues/new(?*params)": "new"
     "venues/:id": "show"
 
@@ -8,5 +9,9 @@ class VenuesRouter extends BaseRouter
 
   new: (params) ->
     @render json: @params()
+
+  index: ->
+    navigationView.setPrimaryToHome()
+    @render view: "VenuesIndexView"
 
 @venuesRouter = new VenuesRouter

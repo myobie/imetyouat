@@ -1,5 +1,5 @@
-class @MeetView extends BaseView
-  template: @jst 'meet'
+class @VenuesIndexView extends BaseView
+  template: @jst 'venues/index'
   subViews:
     ".venues": "VenuesListView"
   events:

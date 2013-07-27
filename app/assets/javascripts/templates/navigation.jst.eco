@@ -1,0 +1,8 @@
+<nav>
+  <% if @primaryButton: %>
+    <%- @link @primaryButton.title, @primaryButton.href, @primaryButton.opts %>
+  <% end %>
+  <% if @secondaryButton: %>
+    <%- @link @secondaryButton.title, @secondaryButton.href, @secondaryButton.opts %>
+  <% end %>
+</nav>

@@ -1,3 +1,10 @@
+# Might as well monkey patch Backbone...
+
+Backbone.history.oldLoadUrl = Backbone.history.loadUrl
+Backbone.history.loadUrl = (args...) ->
+  navigationView.clear()
+  @oldLoadUrl args...
+
 class @BaseRouter extends Backbone.Router
   params: ->
     search = location.search.replace(/^\?/, '')
@@ -5,6 +12,9 @@ class @BaseRouter extends Backbone.Router
       JSON.parse decodeURIComponent search
     catch e
       null
+
+  redirect: (path) ->
+    Backbone.history.navigate path, trigger: true, replace: true
 
   render: (opts = {}) ->
     if opts.template

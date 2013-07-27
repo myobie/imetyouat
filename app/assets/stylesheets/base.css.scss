@@ -1,8 +1,4 @@
-$blue: #6AD6EB;
-$light-blue: #BDDDF2;
-$white: #F5F0F0;
-$black: #242020;
-$red: #D40D12;
+@import '_colors';
 
 body,
 html {
@@ -10,7 +6,7 @@ html {
   padding: 0;
   min-height: 100%;
   font: 18px/1.5 Avenir Next, sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   background: $white;
   color: $black;
 }
@@ -26,7 +22,7 @@ span.link {
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol {
-  font-weight: 500;
+  font-weight: 400;
   margin: 0 0 1em;
 }
 
@@ -41,4 +37,39 @@ h1 {
 h2, h3 {
   font-weight: 700;
   font-size: 18px;
+}
+
+#navigation {
+  height: 44px;
+  background: transparent image-url('horn.png') center center no-repeat;
+  background-size: 35.5px 23.5px;
+  margin: 0 0 5px;
+  position: relative;
+
+  &:after {
+    content: "";
+    height: 0;
+    width: 90%;
+    border-bottom: 1px solid $red;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    opacity: 0.1;
+  }
+
+  nav {
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 10px;
+
+    span.link {
+      &:last-of-type {
+        float: right;
+      }
+      &:first-of-type {
+        float: none;
+      }
+    }
+  }
 }
