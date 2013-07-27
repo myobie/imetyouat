@@ -12,7 +12,6 @@ class @VenueShowView extends RemoteModelView
   mapURL: ->
     loc = @model.get('location')
     ll = [loc['lat'], loc["lng"]].join(",")
-    console.log ll
     base = "http://maps.googleapis.com/maps/api/staticmap?"
     opts =
       size: "320x150"
