@@ -7,10 +7,14 @@ class @VenuesIndexView extends BaseView
     "keyup input[type=search]": "typed"
 
   typed: (e) =>
-    @typedF or= _.debounce @searchFormSubmitted, 300
+    @typedF or= _.debounce @doSearch, 300
     @typedF()
 
   searchFormSubmitted: (e) =>
-    e.preventDefault() if e
+    e.preventDefault()
+    @$("input[type=search]").get(0).blur()
+    @doSearch()
+
+  doSearch: () =>
     query = @$("input[type=search]").val()
     @trigger "search", query

@@ -22,7 +22,7 @@ class VenuesController < ApplicationController
       respond_with venues["response"]["venues"]
     else
       self.status = 500
-      # TODO: log venues response somewhere
+      logger.error JSON.pretty_generate(venues)
       respond_with errors: ["Problem hitting the foursquare api right now"]
     end
   end
@@ -50,7 +50,9 @@ class VenuesController < ApplicationController
 
     res = RestClient.get File.join("https://api.foursquare.com/v2", path),
                          params: api_params,
-                         accept: :json
+                         accept: :json do |resp, req, result, &blk|
+      result # let's let errors pass through
+    end
 
     JSON.parse res.body
   end

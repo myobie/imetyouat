@@ -1,0 +1,52 @@
+@import '_colors';
+
+input[type=text],
+input[type=search] {
+  font-size: 16px;
+}
+
+.search-form {
+  .search-field {
+    display: block;
+
+    input {
+      width: 80%;
+    }
+  }
+}
+
+.sheet {
+  margin: 0 -10px;
+  background: white;
+}
+
+.choose-list {
+  h2 {
+    font-weight: 400;
+    height: 44px;
+    line-height: 44px;
+    margin: 0;
+    padding: 0 10px;
+    border-bottom: 1px solid $light-blue;
+  }
+
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    min-height: 24px;
+    padding: 10px;
+    border-bottom: 1px solid $light-blue;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  span.link {
+    text-decoration: none;
+  }
+}

@@ -1,7 +1,12 @@
 <h1>Meet some people.</h1>
 
-<form>
-  <p><label>Where are you? <input type="search" placeholder="Search"></label></p>
+<form class="search-form venues-search-form">
+  <p>
+    <label>
+      Where are you?
+      <span class="search-field"><input type="search" placeholder="Search"></span>
+    </label>
+  </p>
 </form>
 
-<div class="venues"></div>
+<div class="venues choose-list sheet"></div>

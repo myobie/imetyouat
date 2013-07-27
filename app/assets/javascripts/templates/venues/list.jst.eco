@@ -1,4 +1,3 @@
-<h2><%= @heading() %></h2>
 <ul>
   <% if @collection.models.length > 0: %>
     <% for venue in @collection.models: %>
