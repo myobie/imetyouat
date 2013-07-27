@@ -1,6 +1,6 @@
 class @VenuesListView extends CollectionView
   collectionType: 'Venues'
-  template: @jst 'venues_list'
+  template: @jst 'venues/list'
 
   heading: ->
     if @searching
@@ -36,3 +36,6 @@ class @VenuesListView extends CollectionView
     Geo.locate (pos) =>
       @collection.search pos[0], pos[1], query, success: =>
         @finishedLoading()
+      , error: =>
+        @finishedLoading()
+        @collection.reset []

@@ -1,6 +1,6 @@
-class @VenueShowView extends RemoteModelView
+class @VenuesShowView extends RemoteModelView
   modelType: 'Venue'
-  template: @jst 'venue_show'
+  template: @jst 'venues/show'
 
   render: ->
     if !Geo.currentLocation

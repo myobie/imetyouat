@@ -1,5 +1,44 @@
+$blue: #6AD6EB;
+$light-blue: #BDDDF2;
+$white: #F5F0F0;
+$black: #242020;
+$red: #D40D12;
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font: 18px/1.5 Avenir Next, sans-serif;
+  font-weight: 500;
+  background: $white;
+  color: $black;
+}
+
 span.link {
-  color: blue;
+  color: $red;
   text-decoration: underline;
   cursor: pointer;
+}
+
+#content {
+  padding: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+  font-weight: 500;
+  margin: 0 0 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2, h3 {
+  font-weight: 700;
+  font-size: 18px;
 }

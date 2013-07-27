@@ -1,6 +1,9 @@
 class @Venues extends Backbone.Collection
   url: '/venues'
   search: (latitude, longitude, q = '', cbs = {}) ->
+    cbs.error or= (collection) ->
+      collection.reset []
+
     @fetch
       reset: true
       data:
