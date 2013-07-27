@@ -59,12 +59,12 @@ class @BaseView extends Backbone.View
   link: (name, path, opts = {}) ->
     s = document.createElement 'span'
     s.innerText = name
-    params = opts.params || {}
+    params = opts.params
     for key, value of opts
       s[key] = value
     s.setAttribute 'data-link', true
     s.setAttribute 'data-href', path
-    s.setAttribute 'data-params', encodeURIComponent JSON.stringify params
+    s.setAttribute 'data-params', encodeURIComponent JSON.stringify params if params
     s.className += " link"
     s.outerHTML
 
