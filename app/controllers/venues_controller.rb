@@ -9,21 +9,14 @@ class VenuesController < ApplicationController
     end
 
     api_params = {
-      client_id: ENV['FOURSQUARE_CLIENT_ID'],
-      client_secret: ENV['FOURSQUARE_CLIENT_SECRET'],
       ll: [params[:latitude], params[:longitude]].join(','),
       intent: 'browse',
       query: params[:q],
-      v: '20130723',
       limit: 10,
       radius: 5_000
     }
 
-    res = RestClient.get "https://api.foursquare.com/v2/venues/search",
-                         params: api_params,
-                         accept: :json
-
-    venues = JSON.parse res.body
+    venues = api_get "venues/search", api_params
 
     if venues["meta"]["code"] == 200
       respond_with venues["response"]["venues"]
@@ -32,5 +25,33 @@ class VenuesController < ApplicationController
       # TODO: log venues response somewhere
       respond_with errors: ["Problem hitting the foursquare api right now"]
     end
+  end
+
+  def show
+    venue = api_get "venues/#{params.require(:id)}"
+
+    if venue["meta"]["code"] == 200
+      respond_with venue["response"]["venue"]
+    else
+      self.status = 500
+      # TODO: log venue response somewhere
+      respond_with errors: ["Problem hitting the foursquare api right now"]
+    end
+  end
+
+  private
+
+  def api_get(path, opts = {})
+    api_params = {
+      client_id: ENV['FOURSQUARE_CLIENT_ID'],
+      client_secret: ENV['FOURSQUARE_CLIENT_SECRET'],
+      v: '20130723'
+    }.merge(opts)
+
+    res = RestClient.get File.join("https://api.foursquare.com/v2", path),
+                         params: api_params,
+                         accept: :json
+
+    JSON.parse res.body
   end
 end
