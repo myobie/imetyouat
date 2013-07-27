@@ -1,10 +1,12 @@
 class @Venues extends Backbone.Collection
   url: '/venues'
-  search: (latitude, longitude, q = '') ->
+  search: (latitude, longitude, q = '', cbs = {}) ->
     @fetch
       reset: true
       data:
         latitude: latitude
         longitude: longitude
         q: q
+      success: cbs.success
+      error: cbs.error
     @

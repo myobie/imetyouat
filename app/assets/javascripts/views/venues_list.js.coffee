@@ -34,7 +34,5 @@ class @VenuesListView extends CollectionView
     @startLoading()
 
     Geo.locate (pos) =>
-      @collection.search pos[0], pos[1], query
-
-  beoreRender: ->
-    @finishedLoading()
+      @collection.search pos[0], pos[1], query, success: =>
+        @finishedLoading()
