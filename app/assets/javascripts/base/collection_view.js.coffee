@@ -1,11 +1,13 @@
 #= require 'base/view'
 
 class @CollectionView extends BaseView
-  preInitialize: ->
+  preInitialize: (opts) ->
     @collectionType = window[@collectionType] if _.isString @collectionType
     @collection = new @collectionType
-    @listenTo @collection, "reset", @render
+
+    unless opts.dontListen?
+      @listenTo @collection, "reset", @render
 
   constructor: (opts) ->
-    @preInitialize()
+    @preInitialize(opts)
     super
