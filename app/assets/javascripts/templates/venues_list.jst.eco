@@ -1,0 +1,18 @@
+<h2><%= @heading() %></h2>
+<ul>
+  <% if @collection.models.length > 0: %>
+    <% for venue in @collection.models: %>
+      <li>
+        <%- @link venue.get('name'), "/venues/#{venue.get("id")}" %>
+      </li>
+    <% end %>
+  <% else: %>
+    <li>
+      <% if @loading: %>
+        Loading...
+      <% else: %>
+        No results.
+      <% end %>
+    </li>
+  <% end %>
+</ul>

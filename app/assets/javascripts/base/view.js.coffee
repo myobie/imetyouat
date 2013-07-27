@@ -1,9 +1,6 @@
 class @BaseView extends Backbone.View
   @jst: (name) -> JST["templates/#{name}"]
 
-  subViews: {}
-  subViewOpts: {}
-
   render: (opts = {}) ->
     @beforeRender?()
     @$el.html @template @
@@ -12,17 +9,15 @@ class @BaseView extends Backbone.View
     @
 
   remove: ->
-    for selector, child in @children
+    for selector, child of @children
+      console.log selector, child
       child.remove()
+    @children = {}
     super
-
-  children: {}
 
   renderSubViews: ->
     for selector, view of @subViews
-      child = @children[selector]
-      unless child?
-        child = @addSubView selector, view
+      child = @addSubView selector, view
       child.render()
     @
 
@@ -31,13 +26,16 @@ class @BaseView extends Backbone.View
     if child?
       child
     else
-      @subViews["selector"] = view unless @subViews["selector"]?
+      @subViews[selector] = view unless @subViews[selector]?
       child = @prepareSubView selector, view
       @children[selector] = child
       child
 
   constructor: (opts) ->
     @parent = opts?.parent
+    @subViews or= {}
+    @subViewOpts or= {}
+    @children or= {}
     super
 
   prepareSubView: (selector, view) ->
