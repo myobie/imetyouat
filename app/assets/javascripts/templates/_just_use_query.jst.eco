@@ -1,0 +1,1 @@
+<li><%- @link "Just use \"#{@escape @lastQuery}\"", "/venues/new", query: @lastQuery %></li>

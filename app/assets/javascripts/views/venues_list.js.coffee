@@ -24,6 +24,8 @@ class @VenuesListView extends CollectionView
     @search()
 
   search: (query) ->
+    @lastQuery = query
+
     if query and query isnt ''
       @searching = true
     else

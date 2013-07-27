@@ -6,13 +6,13 @@
         <%- @link venue.get('name'), "/venues/#{venue.get("id")}" %>
       </li>
     <% end %>
+    <%- @partial "just_use_query" %>
   <% else: %>
-    <li>
-      <% if @loading: %>
-        Loading...
-      <% else: %>
-        No results.
-      <% end %>
-    </li>
+    <% if @loading: %>
+      <li>Loading...</li>
+    <% else: %>
+      <li>No results.</li>
+      <%- @partial "just_use_query" %>
+    <% end %>
   <% end %>
 </ul>
