@@ -1,4 +1,11 @@
 class @BaseRouter extends Backbone.Router
+  params: ->
+    search = location.search.replace(/^\?/, '')
+    try
+      JSON.parse decodeURIComponent search
+    catch e
+      null
+
   render: (opts = {}) ->
     if opts.template
       template = BaseView.jst opts.template

@@ -7,6 +7,6 @@ class VenuesRouter extends BaseRouter
     @render json: { id: id }
 
   new: (params) ->
-    @render html: "new!"
+    @render json: @params()
 
 @venuesRouter = new VenuesRouter
