@@ -7,6 +7,8 @@ RailsApp::Application.routes.draw do
 
   root to: 'homepage#index'
 
+  get 'placeholder' => 'homepage#placeholder'
+
   get '*glob' => 'homepage#index'
 
 end

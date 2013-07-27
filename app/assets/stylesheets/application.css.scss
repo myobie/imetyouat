@@ -1,0 +1,11 @@
+//= require_self
+//= require_tree .
+
+@import '_colors';
+
+#placeholder {
+  background: $red;
+  color: $white;
+  height: 100%;
+  padding: 100px 10px;
+}
