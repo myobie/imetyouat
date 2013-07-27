@@ -1,0 +1,9 @@
+<h1><%= @model.get('name') || "Loading..." %></h1>
+
+<% if @model.get("name"): %>
+  <img src="<%= @mapURL() %>">
+<% end %>
+
+<pre>
+<%= JSON.stringify @model, false, 2 %>
+</pre>

@@ -4,7 +4,7 @@ class VenuesRouter extends BaseRouter
     "venues/:id": "show"
 
   show: (id) ->
-    @render json: { id: id }
+    @render view: new VenueShowView(modelId: id)
 
   new: (params) ->
     @render json: @params()
