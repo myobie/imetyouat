@@ -12,13 +12,11 @@ class @BaseView extends Backbone.View
     names = name.split("/")
     names[names.length-1] = "\_#{names[names.length-1]}"
     name = names.join("/")
-    console.log name
     template = BaseView.jst(name)
     template @
 
   remove: ->
     for selector, child of @children
-      console.log selector, child
       child.remove()
     @children = {}
     super
