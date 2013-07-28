@@ -51,7 +51,7 @@ class VenuesController < ApplicationController
     res = RestClient.get File.join("https://api.foursquare.com/v2", path),
                          params: api_params,
                          accept: :json do |resp, req, result, &blk|
-      result # let's let errors pass through
+      resp # let's let errors pass through
     end
 
     JSON.parse res.body
