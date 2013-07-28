@@ -1,9 +1,8 @@
-<h1><%= @model.get('name') || "Loading..." %></h1>
-
-<% if @model.get("name"): %>
-  <img src="<%= @mapURL() %>">
+<% if @isLoaded(): %>
+  <h1 class="head"><%= @name() %></h1>
+  <h2 class="subhead"><%= @address() %></h2>
+  <p class="tagline"><%= @categories() %></p>
+  <p class="map"><img src="<%= @mapURL() %>"></p>
+<% else: %>
+  <h1>Loading...</h1>
 <% end %>
-
-<pre>
-<%= JSON.stringify @model, false, 2 %>
-</pre>

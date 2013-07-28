@@ -49,4 +49,28 @@ input[type=search] {
   span.link {
     text-decoration: none;
   }
+
+  span.subline {
+    display: block;
+    color: $grey;
+    font-size: 12px;
+    margin-top: -2px;
+  }
+}
+
+.head {
+  margin: 0;
+}
+
+.subhead {
+  margin: 0;
+}
+
+.tagline {
+  margin: 0 0 0.5em;
+}
+
+.map {
+  margin-left: -10px;
+  margin-right: -10px;
 }

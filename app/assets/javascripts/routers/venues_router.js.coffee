@@ -5,6 +5,7 @@ class VenuesRouter extends BaseRouter
     "venues/:id": "show"
 
   show: (id) ->
+    navigationView.setPrimary "Search", "/venues"
     @render view: new VenuesShowView(modelId: id)
 
   new: (params) ->

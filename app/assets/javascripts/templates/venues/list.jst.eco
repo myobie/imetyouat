@@ -3,6 +3,9 @@
     <% for venue in @collection.models: %>
       <li>
         <%- @link venue.get('name'), "/venues/#{venue.get("id")}" %>
+        <% if venue.hasAddress(): %>
+          <span class="subline"><%= venue.formattedAddress() %></span>
+        <% end %>
       </li>
     <% end %>
     <%- @partial "venues/just_use_query" %>
